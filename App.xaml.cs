@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using ITCChampionship.Models;
 
 namespace ITCChampionship
 {
@@ -13,6 +14,7 @@ namespace ITCChampionship
     /// </summary>
     public partial class App : Application
     {
+        public static itcchampionshipEntities db = new itcchampionshipEntities();
         public static MainWindow mainwin;
     }
 }

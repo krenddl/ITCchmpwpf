@@ -7,7 +7,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Sender_Id" Type="Int32" Nullable="false" />
     <Property Name="Chatroom_Id" Type="Int32" Nullable="false" />
-    <Property Name="Date" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Date" Type="Binary" annotation:StoreGeneratedPattern="Computed" />
     <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Chatroom" Relationship="Self.FK_ChatMessage_Chatroom" FromRole="ChatMessage" ToRole="Chatroom" />
     <NavigationProperty Name="Employee" Relationship="Self.FK_ChatMessage_Employee" FromRole="ChatMessage" ToRole="Employee" />

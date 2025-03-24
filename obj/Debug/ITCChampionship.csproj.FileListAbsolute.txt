@@ -25,3 +25,7 @@ C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\D
 C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\MainPage.baml
 C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\Views\Hello.g.cs
 C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\Views\Hello.baml
+C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\Views\ChatWindow.g.cs
+C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\Views\ChatWindow.baml
+C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\Views\EmployeeFinder.g.cs
+C:\Users\web2\source\repos\itcchampionship\ITCChampionship\ITCChampionship\obj\Debug\Views\EmployeeFinder.baml

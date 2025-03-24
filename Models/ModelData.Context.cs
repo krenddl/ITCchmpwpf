@@ -13,10 +13,10 @@ namespace ITCChampionship.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class itcchampionshipEntities1 : DbContext
+    public partial class itcchampionshipEntities : DbContext
     {
-        public itcchampionshipEntities1()
-            : base("name=itcchampionshipEntities1")
+        public itcchampionshipEntities()
+            : base("name=itcchampionshipEntities")
         {
         }
     
@@ -25,11 +25,11 @@ namespace ITCChampionship.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ChatMembers> ChatMembers { get; set; }
         public virtual DbSet<ChatMessage> ChatMessage { get; set; }
         public virtual DbSet<Chatroom> Chatroom { get; set; }
         public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<ChatMembers> ChatMembers { get; set; }
     }
 }

@@ -8,7 +8,41 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Hello">
 
-    <Grid>
-        
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <TextBlock Height="90" x:Name="DGName" FontFamily="Calibri" FontSize="30"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15">Your open chatrooms</TextBlock>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2" Grid.RowSpan="2"  Grid.Column="0" Grid.ColumnSpan="4">
+            <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4">
+                <DataGrid SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" x:Name="DGChat" Height="164">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Topic" Width="*" Binding="{Binding Topic}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="LastMessage" Width="*" Binding="{Binding LastChatMessage.Date, StringFormat='dd.MM : HH:mm'}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Employee Finder" Click="Button_Click"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Close Application" Click="Button_Click_1"></Button>
+        </StackPanel>
     </Grid>
 </Page>

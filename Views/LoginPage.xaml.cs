@@ -28,36 +28,52 @@ namespace ITCChampionship.Views
         {
             InitializeComponent();
             ContextEmployee = new Employee();
+            this.Loaded += Login_Load;
         }
-        private void Button_Cancel(object sender, RoutedEventArgs e)
-        {
-            App.mainwin.Close();
-        }
+        
 
         private void Button_Ok(object sender, RoutedEventArgs e)
         {
             var username = Username.Text;
             var password = Password.Text;
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text))
             {
                 return;
             }
             else
             {
-                using (var db = new itcchampionshipEntities1())
-                {
-                    ContextEmployee = db.Employee.FirstOrDefault(p => p.Username == username && p.Password == password);
+                if (Chkbox.IsChecked == true) 
+                { 
+                    Properties.Settings.Default.username = username;
+                    Properties.Settings.Default.password = password;
+                    Properties.Settings.Default.Save();
+                }
+               
+                    ContextEmployee = App.db.Employee.FirstOrDefault(p => p.Username == username && p.Password == password);
                     if (ContextEmployee != null)
                     {
-                        NavigationService.Navigate(new Hello());
+                        NavigationService.Navigate(new Hello(ContextEmployee));
                     }
                     else
                     {
                         return;
-                    } 
-                }
+                    }
+                
 
             }
+        }
+        private void Login_Load(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.username != string.Empty)
+            {
+                Username.Text = Properties.Settings.Default.username;
+                Password.Text = Properties.Settings.Default.password;
+            }
+        }
+
+        private void Button_Cancel(object sender, RoutedEventArgs e)
+        {
+            App.mainwin.Close();
         }
     }
 }

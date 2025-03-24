@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Хранилище itcchampionshipModelContainer" CdmEntityContainer="itcchampionshipEntities">
+    <EntitySetMapping Name="ChatMembers">
+      <EntityTypeMapping TypeName="itcchampionshipModel.ChatMembers">
+        <MappingFragment StoreEntitySet="ChatMembers">
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Chatroom_Id" ColumnName="Chatroom_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ChatMessage">
       <EntityTypeMapping TypeName="itcchampionshipModel.ChatMessage">
         <MappingFragment StoreEntitySet="ChatMessage">
