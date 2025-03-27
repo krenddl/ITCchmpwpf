@@ -9,6 +9,50 @@
       Title="ChatWindow">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <ScrollViewer>
+                <ListBox Height="200">
+                    
+                </ListBox>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <Button Content="Add User" Click="Button_Add"></Button>
+            <Button Content="Change Topic" Click="Button_Topic"></Button>
+            <Button Content="Leave Chatroom" Click="Button_Cancel"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox Height="112"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <Button Click="Button_Send" Content="Send" Height="112" FontFamily="Tahoma" FontSize="35"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <ScrollViewer Height="337">
+                <ListView x:Name="LVMessages">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Date, StringFormat='[HH:MM]'}"></TextBlock>
+                                <TextBlock Text="{Binding Employee.Name}"></TextBlock>
+                                <TextBlock Text="{Binding Message}"></TextBlock>
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Page>

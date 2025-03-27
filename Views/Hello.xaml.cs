@@ -22,11 +22,13 @@ namespace ITCChampionship.Views
     public partial class Hello : Page
     {
         public Employee ContextEmployee { get; set; }
-        
+        public Chatroom ContextChatroom { get; set; }
+
         public Hello(Employee contextEmployee)
         {
             InitializeComponent();
             ContextEmployee = contextEmployee;
+            ContextChatroom = new Chatroom();
             Refresh();
         }
         private void Refresh()
@@ -37,7 +39,11 @@ namespace ITCChampionship.Views
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            App.mainwin.MainFrame.Navigate(new ChatWindow());
+            if (DGChat.SelectedItem is Chatroom chatroom)
+            {
+                NavigationService.Navigate(new ChatWindow(chatroom));
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

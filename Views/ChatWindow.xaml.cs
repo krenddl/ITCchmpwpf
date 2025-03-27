@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ITCChampionship.Models;
 
 namespace ITCChampionship.Views
 {
@@ -20,9 +21,38 @@ namespace ITCChampionship.Views
     /// </summary>
     public partial class ChatWindow : Page
     {
-        public ChatWindow()
+        public int _chatId;
+        public ChatMessage messageContext;
+        public ChatWindow(Chatroom chatroom)
         {
             InitializeComponent();
+            _chatId = chatroom.Id;
+            LVMessages.ItemsSource = App.db.ChatMessage.Where(x=>x.Chatroom_Id==_chatId).ToList();
+            messageContext = new ChatMessage();
+
+        }
+        private void LoadChatDetails()
+        {
+        }
+
+        private void Button_Cancel(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void Button_Topic(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Send(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

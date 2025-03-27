@@ -16,17 +16,25 @@
         </Grid.ColumnDefinitions>
         <StackPanel Margin="20" Orientation="Vertical">
                 <TextBlock FontFamily="Calibri" FontSize="15">Departaments</TextBlock>
-            <ListBox Name="DepartmentList" SelectionMode="Single">
-                <ListBoxItem Margin="0,5">Admin</ListBoxItem>
-                <ListBoxItem Margin="0,5">IT Helpdesk</ListBoxItem>
-                <ListBoxItem Margin="0,5">Sales</ListBoxItem>
-                <ListBoxItem Margin="0,5">Marketing</ListBoxItem>
+            <ListBox x:Name="DepartmentList" SelectionMode="Multiple" SelectionChanged="DepartmentList_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+            
                 
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" >
-            <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged"></TextBox>
-            <ListBox MouseDoubleClick="SearchBox_MouseDoubleClick" Height="300"></ListBox>
+            <TextBox x:Name="TBSearch" TextChanged="SearchBox_TextChanged"></TextBox>
+            <ListBox  x:Name="LBEmployee" Height="300">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
         
     </Grid>
